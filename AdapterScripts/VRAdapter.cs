@@ -14,28 +14,37 @@ public enum Platform
 }
 public class VRAdapter : MonoBehaviour {
     public Platform targetPlatform;
-	// Use this for initialization
-	void Start () {
-        // get the type of main camera
-        // this is used to check which type of platform we have
-        
+
+    private GazeInterface targetScript;
+    private SMIPlatform smi;
+
+    // Use this for initialization 
+    void Start()
+    {
+        // get the type of main camera 
+        // this is used to check which type of platform we have 
+
         gameObject.AddComponent<SMIPlatform>();
         SMIPlatform smi = gameObject.GetComponent<SMIPlatform>();
 
         smi.setAdapter(this);
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        
     }
 
-
-    public virtual void OnPointerEnter() {
-        Debug.Log("on enter adapter");
+    public void setTarget(GazeInterface targetScript)
+    {
+        this.targetScript = targetScript;
     }
 
-    public virtual void OnPointerExit() { }
+    public void OnPointerEnter() {
+        targetScript.OnPointerEnter();
+    }
 
-    public virtual void OnPointerStay(RaycastHit hitInformation) { }
+    public void OnPointerExit() {
+        targetScript.OnPointerExit();
+    }
+
+    public void OnPointerStay(RaycastHit hitInformation) {
+        targetScript.OnPointerStay(hitInformation);
+    }
+
 }

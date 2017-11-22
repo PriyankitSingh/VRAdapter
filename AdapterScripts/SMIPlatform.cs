@@ -20,7 +20,6 @@ public class SMIPlatform : GazeMonoBehaviour
     public override void OnGazeEnter(RaycastHit hitInformation)
     {
         base.OnGazeEnter(hitInformation);
-        Debug.Log("on enter smi");
         if (adapter != null)
         {
             adapter.OnPointerEnter();
