@@ -5,14 +5,17 @@ using UnityEngine;
 
 public class Test : MonoBehaviour, GazeInterface
 {
+    public Platform platform = Platform.Generic;
+
     private VRAdapter adapter;
+
 	// Use this for initialization
 	void Start () {
         // TODO: could be inside the interface
         gameObject.AddComponent<VRAdapter>();
         adapter = gameObject.GetComponent<VRAdapter>();
         adapter.setTarget(this.gameObject);
-        adapter.setPlatform(Platform.Generic);
+        adapter.setPlatform(platform);
     }
 	
 	// Update is called once per frame

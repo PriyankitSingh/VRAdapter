@@ -27,17 +27,24 @@ public class HeadTrackingPlatform : MonoBehaviour {
                 else // if we're seeing the object for the first time
                 {
                     adapter.OnPointerEnter();
+                    hasEntered = true;
                 }
             } else if (hasEntered) // not looking at the object anymore
             {
-                adapter.OnPointerExit();
-                hasEntered = false;
+                pointerExit();
             }
+        } else if (hasEntered)
+        {
+            pointerExit();
         }
 
     }
 
-    
+    private void pointerExit()
+    {
+        adapter.OnPointerExit();
+        hasEntered = false;
+    }
 
     public void setAdapter(VRAdapter adapter)
     {
