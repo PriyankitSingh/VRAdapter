@@ -11,7 +11,8 @@ public class Test : MonoBehaviour, GazeInterface
         // TODO: could be inside the interface
         gameObject.AddComponent<VRAdapter>();
         adapter = gameObject.GetComponent<VRAdapter>();
-        adapter.setTarget(this);
+        adapter.setTarget(this.gameObject);
+        adapter.setPlatform(Platform.Generic);
     }
 	
 	// Update is called once per frame

@@ -7,16 +7,6 @@ public class SMIPlatform : GazeMonoBehaviour
 {
     private VRAdapter adapter;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
     public override void OnGazeEnter(RaycastHit hitInformation)
     {
         base.OnGazeEnter(hitInformation);
