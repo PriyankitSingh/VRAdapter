@@ -1,3 +1,5 @@
 # Research Project: 
-- Device Independent Interaction with objects
-- Using Eye Tracking and Virtual Reality
+- Library of event listeners and adapter scripts that enable device independent interaction with objects.
+- Integrating technologies like the HTC Vive and Tobii Eye-Tracker.
+
+### Link: https://select3dwebpage.github.io/
