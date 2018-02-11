@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using SMI;
+using Tobii.Gaming;
 
 /**
  * Defines the type of platform for which the script is being written.
@@ -10,29 +11,38 @@ using SMI;
  * */
 public enum Platform
 {
-    FOVE, SMIVive, Generic
+    FOVE, SMIVive, Generic, Tobii
 }
 public class VRAdapter : MonoBehaviour {
-    public Platform targetPlatform;
 
+    public Platform targetPlatform;
     private GazeInterface targetScript;
     private GameObject targetObject;
+
     private SMIPlatform smi;
+    private TobiiPlatform tobii;
     private HeadTrackingPlatform headTracker;
+
     private GameObject[] mainCameras;
     private GameObject cam;
+
 
     // Use this for initialization 
     void Start()
     {
+        Debug.Log("Working VRAdapter");
+
         // get the type of main camera 
         // this is used to check which type of platform we have 
-        if(targetPlatform == Platform.SMIVive)
+
+        if (targetPlatform == Platform.SMIVive)
         {
             gameObject.AddComponent<SMIPlatform>();
             SMIPlatform smi = gameObject.GetComponent<SMIPlatform>();
             smi.setAdapter(this);
-        } else if(targetPlatform == Platform.Generic)
+        }
+
+        else if(targetPlatform == Platform.Generic)
         {
             mainCameras = GameObject.FindGameObjectsWithTag("MainCamera");
             Debug.Log(mainCameras[0].name);
@@ -51,6 +61,13 @@ public class VRAdapter : MonoBehaviour {
                     break;
                 }
             }
+        }
+
+        else if (targetPlatform == Platform.Tobii)
+        {
+            gameObject.AddComponent<TobiiPlatform>();
+            TobiiPlatform tobii = gameObject.GetComponent<TobiiPlatform>();
+            tobii.setAdapter(this);
         }
     }
 
