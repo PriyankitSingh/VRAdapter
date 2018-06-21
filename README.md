@@ -7,4 +7,4 @@
 ## Important links:
 
 - [Select3D | Homepage](https://select3dwebpage.github.io/)
-- [Select3D | Unity Package](https://nofile.io/f/E81jw3P4116/AdapterUnityPackage.zip)
+- [Select3D | Unity Package](https://nofile.io/f/FAFBGfe5ub6/PointerAdapterPackage.unitypackage)
